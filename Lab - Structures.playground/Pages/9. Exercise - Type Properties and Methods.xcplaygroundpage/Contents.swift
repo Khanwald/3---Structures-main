@@ -8,9 +8,22 @@ struct User {
     var userName: String
     var email: String
     var age: Int
+    
+    static var currentUser = User(userName: "caleb", email: "a@mail.com", age: 34)
+    
+    static func logIn(user:User){
+        User.currentUser.userName = user.userName
+        User.currentUser.email = user.email
+        User.currentUser.age = user.age
+        print("You logged in")
+    }
 }
 
+print(User.currentUser.userName)
+print(User.currentUser.email)
 
+var a = User(userName: "ca", email: "d", age: 34)
+User.logIn(user: a)
 /*:
  There are other properties and actions associated with a `User` struct that might be good candidates for a type property or method. One might be a method for logging in. Go back and create a type method called `logIn(user:)` where `user` is of type `User`. In the body of the method, assign the passed in user to the `currentUser` property, and print out a statement using the user's userName saying that the user has logged in.
  
